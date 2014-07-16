@@ -1,0 +1,7 @@
+#Python
+*.py[abc]
+
+#Database
+*.sqlite
+*.sqlite3
+*.db
