@@ -1,0 +1,14 @@
+Orangutan(django-project with bootstrap)
+=========
+Steps to run project orangutan :
+
+1. Clone repository and change in to orangutan directory
+
+2.Create virtual environment
+
+3.Install the programs using requirements.txt
+
+4.execute command python manage.py runserver
+
+5.in web browser open http"//127.0.0.1:8000/admin
+
