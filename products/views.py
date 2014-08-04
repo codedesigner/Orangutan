@@ -1,6 +1,8 @@
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponseRedirect, HttpResponse
 from products.forms import ProductForm
+from django.template import RequestContext,loader
+from products.models import Product
 
 def upload_file(request):
   if request.method == "POST":
@@ -14,3 +16,8 @@ def upload_file(request):
     form = ProductForm()
 
   return render(request, 'upload.html', {'form':form})
+
+def index(request, product_id):
+  product_name = get_object_or_404(Product, pk=product_id)
+
+  return render(request, 'products/index.html', {'product':product_name})
