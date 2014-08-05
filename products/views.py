@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from products.forms import ProductForm
 from django.template import RequestContext,loader
@@ -17,7 +17,11 @@ def upload_file(request):
 
   return render(request, 'upload.html', {'form':form})
 
-def index(request, product_id):
-  product_name = get_object_or_404(Product, pk=product_id)
+def products_list(request):
+  products = Product.objects.all().order_by("product_name")
+  #print products
+  return render(request, 'products/products_list.html', {'product_list': products})
 
-  return render(request, 'products/index.html', {'product':product_name})
+def product_detail(request, product_id):
+  products = get_object_or_404(Product, pk=product_id)
+  return render(request, 'products/product_detail.html', {'product': products})

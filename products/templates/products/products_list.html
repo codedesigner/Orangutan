@@ -1,0 +1,17 @@
+<! DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <title>Orangutan Site</title>
+</head>
+<body>
+  <div class="container">
+    <ul>
+      {% for product in product_list %}
+      <li><a href="products/{{ product.product_id}}">{{ product.product_name }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
+</html>
